@@ -1,0 +1,10 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Source Code Pro", monospace;
+    width: 100vw;
+    min-height: 100dvh;
+    overflow-x: clip;
+}

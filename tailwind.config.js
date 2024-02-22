@@ -28,11 +28,14 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'source-code-pro': ['Source Code Pro', 'monospace'],
+      },
       colors: {
         accentColor,
         backgroundColor,
         textColor,
-      }
+      },
     },
   },
   plugins: [],
