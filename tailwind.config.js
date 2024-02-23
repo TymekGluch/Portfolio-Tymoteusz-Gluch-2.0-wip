@@ -31,11 +31,26 @@ export default {
       fontFamily: {
         'source-code-pro': ['Source Code Pro', 'monospace'],
       },
+
       colors: {
         accentColor,
         backgroundColor,
         textColor,
       },
+
+      boxShadow: {
+        'md': '0 0 25px 1px rgb(var(--text))',
+        'md-inner': 'inset 0 0 25px 1px rgb(var(--text))',
+
+        'variant-2-md': '0 0 25px 1px rgb(var(--accent-orange))',
+        'variant-2-md-inner': 'inset 0 0 25px 1px rgb(var(--accent-orange))',
+
+        'variant-3-md': '0 0 25px 1px rgb(var(--accent-green))',
+        'variant-3-md-inner': 'inset 0 0 25px 1px rgb(var(--accent-green))',
+
+        'variant-4-md': '0 0 25px 1px rgb(var(--accent-blue))',
+        'variant-4-md-inner': 'inset 0 0 25px 1px rgb(var(--accent-blue))',
+      }
     },
   },
   plugins: [],

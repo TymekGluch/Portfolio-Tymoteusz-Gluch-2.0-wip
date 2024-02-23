@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { Layout } from "./components/Layout";
 
 function App() {
   React.useLayoutEffect(() => {
@@ -14,7 +15,7 @@ function App() {
     }
   }, []);
 
-  return <div className="">fddfd</div>;
+  return <Layout></Layout>;
 }
 
 export default App;
