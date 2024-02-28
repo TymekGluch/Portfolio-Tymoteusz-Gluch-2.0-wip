@@ -1,6 +1,7 @@
 import React from "react";
 import { ITEM_VISIBILITY_DEVICE, navigationLinks } from "./MainNavigation.data";
 import classNames from "classnames";
+import closeIcon from "../../assets/close-icon.svg";
 
 const MainNavigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
@@ -16,6 +17,8 @@ const MainNavigation: React.FC = () => {
 
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const CloseIcon = closeIcon;
 
   return (
     <nav className="fixed lg:static top-0 left-0  self-center flex justify-center items-center w-screen px-6 lg:px-12 bg-backgroundColor-primary bg-opacity-80 shadow-md-inner z-50">
@@ -39,17 +42,7 @@ const MainNavigation: React.FC = () => {
           aria-label={menuButtonDescription}
           onClick={handleMenu}>
           {isMenuOpen ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-8 h-8 fill-accentColor-secondary">
-              <path
-                fillRule="evenodd"
-                d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
-                clipRule="evenodd"
-              />
-            </svg>
+            <CloseIcon />
           ) : (
             <svg
               xmlns="http://www.w3.org/2000/svg"
