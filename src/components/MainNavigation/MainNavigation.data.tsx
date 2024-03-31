@@ -45,4 +45,8 @@ const navigationLinks = [
   },
 ] as NavigationLinksType;
 
-export { navigationLinks, ITEM_VISIBILITY_DEVICE };
+const onlyMobileLinks = [...navigationLinks]
+  .reverse()
+  .filter((_, index) => index <= 1);
+
+export { navigationLinks, onlyMobileLinks, ITEM_VISIBILITY_DEVICE };

@@ -1,5 +1,9 @@
 import React from "react";
-import { ITEM_VISIBILITY_DEVICE, navigationLinks } from "./MainNavigation.data";
+import {
+  ITEM_VISIBILITY_DEVICE,
+  navigationLinks,
+  onlyMobileLinks,
+} from "./MainNavigation.data";
 import classNames from "classnames";
 
 const MainNavigation: React.FC = () => {
@@ -70,25 +74,26 @@ const MainNavigation: React.FC = () => {
             "fixed lg:static left-1/2 bottom-0 lg:flex justify-center items-start lg:items-center w-screen lg:w-fit h-[calc(100dvh_-_4rem)] lg:h-fit bg-backgroundColor-primary lg:bg-transparent bg-opacity-80 lg:bg-opacity-100 transform -translate-x-1/2 lg:transform-none"
           )}>
           <ul className="flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-10 w-fit p-10 lg:p-0 mt-[15vh] lg:m-0 bg-backgroundColor-primary lg:bg-transparent border-solid border border-accentColor-primary lg:border-none rounded-lg lg:rounded-none shadow-variant-2-md-inner lg:shadow-none">
-            {navigationLinks.map(
-              ({ name, anchor, deviceVisibility }, index, array) => (
-                <li
-                  key={name}
-                  className={classNames(
-                    "flex flex-col lg:flex-row gap-4 w-full last-of-type:text-accentColor-secondary uppercase",
-                    deviceVisibility === ITEM_VISIBILITY_DEVICE.MOBILE &&
-                      "lg:hidden"
-                  )}>
-                  <a href={anchor} className="whitespace-nowrap">
-                    {name}
-                  </a>
+            {navigationLinks.map((current, index, array) => (
+              <li
+                key={current.name}
+                className={classNames(
+                  "flex flex-col lg:flex-row gap-4 w-full last-of-type:text-accentColor-secondary uppercase",
+                  current.deviceVisibility === ITEM_VISIBILITY_DEVICE.MOBILE &&
+                    "lg:hidden",
+                  !onlyMobileLinks
+                    .map(({ name }) => name)
+                    .includes(current.name) && "lg:hidden"
+                )}>
+                <a href={current.anchor} className="whitespace-nowrap">
+                  {current.name}
+                </a>
 
-                  {index < array.length - 1 && (
-                    <span className="block lg:hidden w-full h-px bg-accentColor-primary shadow-variant-2-md" />
-                  )}
-                </li>
-              )
-            )}
+                {index < array.length - 1 && (
+                  <span className="block lg:hidden w-full h-px bg-accentColor-primary shadow-variant-2-md" />
+                )}
+              </li>
+            ))}
           </ul>
         </div>
       </div>
