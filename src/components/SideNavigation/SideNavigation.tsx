@@ -1,5 +1,10 @@
 import React from "react";
 import { resolvedSideNavigationLink } from "./SideNavigation.data";
+import { Technologies } from "../domain";
+import {
+  TECHNOLOGIES_HEADING,
+  TECHNOLOGIES_VARIANT,
+} from "../domain/Technologies/Technologies.constants";
 
 const SideNavigation: React.FC = () => {
   return (
@@ -19,7 +24,10 @@ const SideNavigation: React.FC = () => {
           </ul>
         </nav>
 
-        <div className="flex w-full h-72 border-solid border border-accentColor-primary rounded-2xl shadow-variant-2-md-inner"></div>
+        <Technologies
+          variant={TECHNOLOGIES_VARIANT.SIDE_NAVIGATION}
+          headingTag={TECHNOLOGIES_HEADING.H2}
+        />
       </div>
     </div>
   );
