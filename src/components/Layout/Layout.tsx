@@ -11,7 +11,7 @@ const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
         <div className="lg:grid grid-cols-12 gap-4">
           <SideNavigation />
 
-          <div className="col-span-8 flex flex-col items-center gap-5 w-full min-h-[calc(100vh_-_5rem)] lg:min-h-[calc(100vh_-_5.5rem)] p-6 mt-20 lg:mt-0 lg:mb-2 lg:rounded-2xl border border-solid border-textColor-primary bg-transparent shadow-md-inner">
+          <div className="col-span-8 flex flex-col items-center gap-10 w-full min-h-[calc(100vh_-_5rem)] lg:min-h-[calc(100vh_-_5.5rem)] p-6 mt-20 lg:mt-0 lg:mb-2 lg:rounded-2xl border border-solid border-textColor-primary bg-transparent shadow-md-inner">
             {children}
           </div>
         </div>
