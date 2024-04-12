@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 import { Layout } from "./components/Layout";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "./QueryClient";
 
 function App() {
   React.useLayoutEffect(() => {
@@ -15,7 +17,11 @@ function App() {
     }
   }, []);
 
-  return <Layout></Layout>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Layout></Layout>
+    </QueryClientProvider>
+  );
 }
 
 export default App;
