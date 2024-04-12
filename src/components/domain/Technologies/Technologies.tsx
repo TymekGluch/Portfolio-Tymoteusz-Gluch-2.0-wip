@@ -7,10 +7,12 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { v4 as uuid } from "uuid";
 import { baseApiUrl, createAssetQuery } from "../../../utilities";
+import classNames from "classnames";
 
 type TechnologiesProps = {
   variant: ValueOf<typeof TECHNOLOGIES_VARIANT>;
   headingTag?: ValueOf<typeof TECHNOLOGIES_HEADING>;
+  id?: string;
 };
 
 const apiKey = import.meta.env.VITE_API_ACCESS_TOKEN;
@@ -23,7 +25,11 @@ type ImagesIdType = {
   };
 };
 
-const Technologies: React.FC<TechnologiesProps> = ({ variant, headingTag }) => {
+const Technologies: React.FC<TechnologiesProps> = ({
+  variant,
+  headingTag,
+  id,
+}) => {
   const {
     data,
     isSuccess,
@@ -55,15 +61,29 @@ const Technologies: React.FC<TechnologiesProps> = ({ variant, headingTag }) => {
   const isLoading = imagesIsLoading || preliminaryIsLoading;
   const isError = imagesIsError || preliminaryIsError;
 
-  const Component =
-    variant === TECHNOLOGIES_VARIANT.SIDE_NAVIGATION ? "section" : "div";
+  const Component = "section";
   const HeadingTag = headingTag ?? React.Fragment;
 
   return (
-    <Component className="flex justify-center items-center flex-wrap gap-8 w-full h-fit p-6 border-solid border border-accentColor-primary text-accentColor-secondary rounded-2xl shadow-variant-2-md-inner">
+    <Component
+      id={id}
+      className={classNames(
+        "flex justify-center items-center flex-wrap gap-8 w-full h-fit p-6 border-solid border border-accentColor-primary rounded-2xl shadow-variant-2-md-inner",
+        variant === TECHNOLOGIES_VARIANT.MOBILE_SECTION &&
+          "lg:hidden shadow-none scroll-m-28"
+      )}>
       {Boolean(headingTag) && (
-        <HeadingTag className="text-xl">
-          {data?.fields?.heading ?? null}
+        <HeadingTag
+          className={classNames(
+            "text-xl",
+            variant === TECHNOLOGIES_VARIANT.MOBILE_SECTION &&
+              "flex flex-col justify-center items-center gap-3 w-full"
+          )}>
+          {data?.fields?.heading ?? "loading..."}
+
+          {variant === TECHNOLOGIES_VARIANT.MOBILE_SECTION && (
+            <span className="block w-full h-px bg-accentColor-primary " />
+          )}
         </HeadingTag>
       )}
 
