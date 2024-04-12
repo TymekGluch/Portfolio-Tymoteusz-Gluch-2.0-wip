@@ -1,5 +1,5 @@
 const TECHNOLOGIES_VARIANT = {
-    DEFAULT: 'default',
+    MOBILE_SECTION: 'mobileSection',
     SIDE_NAVIGATION: 'sideNavigation',
 } as const;
 

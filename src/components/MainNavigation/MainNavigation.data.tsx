@@ -25,7 +25,7 @@ const navigationLinks = [
 
   {
     name: "Technologies, I work",
-    anchor: "#",
+    anchor: "#techonologies-i-use",
     deviceVisibility: "desktop",
   },
 
