@@ -15,12 +15,12 @@ type NavigationLinksType = {
 const navigationLinks = [
   {
     name: "About me",
-    anchor: "#",
+    anchor: "#about-me",
   },
 
   {
     name: "Careere",
-    anchor: "#",
+    anchor: "#careere",
   },
 
   {
@@ -31,12 +31,12 @@ const navigationLinks = [
 
   {
     name: "My projects",
-    anchor: "#",
+    anchor: "#my-project",
   },
 
   {
     name: "Contact",
-    anchor: "#",
+    anchor: "#contact",
   },
 
   {

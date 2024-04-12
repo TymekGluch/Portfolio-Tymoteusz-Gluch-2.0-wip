@@ -68,7 +68,7 @@ const Technologies: React.FC<TechnologiesProps> = ({
     <Component
       id={id}
       className={classNames(
-        "flex justify-center items-center flex-wrap gap-8 w-full h-fit p-6 border-solid border border-accentColor-primary rounded-2xl shadow-variant-2-md-inner",
+        "flex justify-center items-center flex-wrap gap-8 w-full h-fit p-6 border-solid border border-accentColor-primary rounded-2xl",
         variant === TECHNOLOGIES_VARIANT.MOBILE_SECTION &&
           "lg:hidden shadow-none scroll-m-28"
       )}>
