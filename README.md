@@ -9,3 +9,5 @@ This project based on
  - TypeScript
  - Vite
  - tailwind
+
+[page link](https://portfolio-tymoteusz-gluch-wip.netlify.app/)
