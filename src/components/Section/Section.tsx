@@ -8,9 +8,10 @@ import {
 } from "./Section.constants";
 import classNames from "classnames";
 import {
-  sectionBagroundColor,
-  sectionShadow,
-  sectionTextColor,
+  getBagroundVariant,
+  getInsetShadowVariant,
+  getShadowVariant,
+  getTextColorVariant,
 } from "./Section.utilities";
 
 type SectionProps = React.PropsWithChildren<{
@@ -35,29 +36,26 @@ const Section: React.FC<
   const Component = sectionComponent;
   const HeadingTag = headingTag;
 
-  const sectionRef = React.useRef<HTMLDivElement>(null);
-
   return (
     <Component
-      ref={sectionRef}
       className={classNames(
         "relative flex flex-col justify-between items-center gap-6 w-[calc(100%_+_3rem)] min-h-32 p-6 py-0 scroll-m-20 first-of-type:scroll-m-28",
-        sectionTextColor(colorVariant)
+        getTextColorVariant(colorVariant)
       )}
       {...restProps}>
       {!!heading && (
         <HeadingTag
           className={classNames(
             "flex flex-col justify-center items-center gap-2 w-full text-2xl uppercase ",
-            sectionTextColor(colorVariant)
+            getTextColorVariant(colorVariant)
           )}>
           {heading}
 
           <span
             className={classNames(
               "w-full h-px",
-              sectionBagroundColor(colorVariant),
-              sectionShadow(colorVariant, SECTION_SHADOW_SIZE.MD, false)
+              getBagroundVariant(colorVariant),
+              getShadowVariant(colorVariant)
             )}
           />
         </HeadingTag>
@@ -71,15 +69,15 @@ const Section: React.FC<
         <span
           className={classNames(
             "block w-px h-[calc(100%_-_4rem)] mt-2",
-            sectionShadow(colorVariant, SECTION_SHADOW_SIZE.MD, false),
-            sectionBagroundColor(colorVariant)
+            getShadowVariant(colorVariant),
+            getBagroundVariant(colorVariant)
           )}
         />
         <span
           className={classNames(
             "block w-4 h-4 rounded-full",
-            sectionBagroundColor(colorVariant),
-            sectionShadow(colorVariant, SECTION_SHADOW_SIZE.MD, false)
+            getBagroundVariant(colorVariant),
+            getShadowVariant(colorVariant)
           )}
         />
       </div>

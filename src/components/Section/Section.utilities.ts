@@ -1,42 +1,84 @@
 import { ValueOf } from "../../types/utiles";
 import { SECTION_COLOR_VARIANT, SECTION_SHADOW_SIZE } from "./Section.constants";
 
-const getColorFromSectionColorVariant = (colorVariant: ValueOf<typeof SECTION_COLOR_VARIANT>) => {
-    switch (colorVariant) {
-        case SECTION_COLOR_VARIANT.DEFAULT: 
-            return 'textColor-primary';
+const shadows = [
+    'shadow-md',
+    'shadow-variant-2-md',
+    'shadow-variant-3-md',
+    'shadow-variant-4-md',
+] as string[];
+
+const insetShadows = [
+    'shadow-md',
+    'shadow-variant-2-md',
+    'shadow-variant-3-md',
+    'shadow-variant-4-md',
+] as string[];
+
+const bagroundsVariants = [
+    'bg-textColor-primary',
+    'bg-accentColor-primary',
+    'bg-accentColor-secondary',
+    'bg-accentColor-tertiary',
+] as string[];
+
+const textColorVariants = [
+    'text-textColor-primary',
+    'text-accentColor-primary',
+    'text-accentColor-secondary',
+    'text-accentColor-tertiary',
+] as string[];
+
+const getShadowVariant = (color: ValueOf<typeof SECTION_COLOR_VARIANT>): string => {
+    switch (color) {
+        case SECTION_COLOR_VARIANT.DEFAULT:
+            return shadows[0];
         case SECTION_COLOR_VARIANT.PRIMARY:
-            return 'accentColor-primary';
+            return shadows[1];
         case SECTION_COLOR_VARIANT.SECONDARY:
-            return 'accentColor-secondary';
+            return shadows[2];
         case SECTION_COLOR_VARIANT.TERTIARY:
-            return 'accentColor-tertiary';
-    };
-}
+            return shadows[3];
+    }
+} 
 
-const getShadowColorFromSectionColorVariant = (colorVariant: ValueOf<typeof SECTION_COLOR_VARIANT>) => {
-    switch (colorVariant) {
-        case SECTION_COLOR_VARIANT.DEFAULT: 
-            return '';
+const getInsetShadowVariant = (color: ValueOf<typeof SECTION_COLOR_VARIANT>): string => {
+    switch (color) {
+        case SECTION_COLOR_VARIANT.DEFAULT:
+            return insetShadows[0];
         case SECTION_COLOR_VARIANT.PRIMARY:
-            return 'variant-2';
+            return insetShadows[1];
         case SECTION_COLOR_VARIANT.SECONDARY:
-            return 'variant-3';
+            return insetShadows[2];
         case SECTION_COLOR_VARIANT.TERTIARY:
-            return 'variant-4';
-    };
+            return insetShadows[3];
+    }
 }
 
-const sectionBagroundColor = (colorVariant: ValueOf<typeof SECTION_COLOR_VARIANT>): string => {
-    return `bg-${getColorFromSectionColorVariant(colorVariant)}`;
+const getBagroundVariant = (color: ValueOf<typeof SECTION_COLOR_VARIANT>): string => {
+    switch (color) {
+        case SECTION_COLOR_VARIANT.DEFAULT:
+            return bagroundsVariants[0];
+        case SECTION_COLOR_VARIANT.PRIMARY:
+            return bagroundsVariants[1];
+        case SECTION_COLOR_VARIANT.SECONDARY:
+            return bagroundsVariants[2];
+        case SECTION_COLOR_VARIANT.TERTIARY:
+            return bagroundsVariants[3];
+    }
 }
 
-const sectionTextColor = (colorVariant: ValueOf<typeof SECTION_COLOR_VARIANT>): string => {
-    return `text-${getColorFromSectionColorVariant(colorVariant)}`;
+const getTextColorVariant = (color: ValueOf<typeof SECTION_COLOR_VARIANT>): string => {
+    switch (color) {
+        case SECTION_COLOR_VARIANT.DEFAULT:
+            return textColorVariants[0];
+        case SECTION_COLOR_VARIANT.PRIMARY:
+            return textColorVariants[1];
+        case SECTION_COLOR_VARIANT.SECONDARY:
+            return textColorVariants[2];
+        case SECTION_COLOR_VARIANT.TERTIARY:
+            return textColorVariants[3];
+    }
 }
 
-const sectionShadow = (colorVariant: ValueOf<typeof SECTION_COLOR_VARIANT>, size: ValueOf<typeof SECTION_SHADOW_SIZE>, isInner: boolean,): string => {
-    return `shadow${colorVariant !== SECTION_COLOR_VARIANT.DEFAULT ? '-' : ''}${colorVariant === SECTION_COLOR_VARIANT.DEFAULT ? '' : getShadowColorFromSectionColorVariant(colorVariant)}-${size}${isInner ? '-inner' : ''}`;
-}
-
-export { sectionBagroundColor, sectionTextColor, sectionShadow }
+export { getInsetShadowVariant, getShadowVariant, getBagroundVariant, getTextColorVariant };
