@@ -6,8 +6,11 @@ import {
 } from "./Technologies.constants";
 import { useQuery } from "@tanstack/react-query";
 import { v4 as uuid } from "uuid";
-import { baseApiUrl, createAssetQuery } from "../../../../utilities";
+import { baseApiUrl, generateAssetQuery } from "../../../../utilities";
 import classNames from "classnames";
+import { ContentProgress } from "../../../Progress";
+import { COLOR_VARIANT } from "../../../../constants";
+import { PROGRESS_STATUS } from "../../../Progress/Progress.constants";
 
 type TechnologiesProps = {
   variant: ValueOf<typeof TECHNOLOGIES_VARIANT>;
@@ -45,7 +48,7 @@ const Technologies: React.FC<TechnologiesProps> = ({
 
   const images = data?.fields?.images;
   const imagesPromises = images?.map((asset: ImagesIdType) =>
-    fetch(createAssetQuery(asset.sys.id)).then((res) => res.ok && res.json())
+    fetch(generateAssetQuery(asset.sys.id)).then((res) => res.ok && res.json())
   );
 
   const {
@@ -70,7 +73,8 @@ const Technologies: React.FC<TechnologiesProps> = ({
       className={classNames(
         "flex justify-center items-center flex-wrap gap-8 w-full h-fit p-6 border-solid border border-accentColor-primary rounded-2xl",
         variant === TECHNOLOGIES_VARIANT.MOBILE_SECTION &&
-          "lg:hidden shadow-none scroll-m-28"
+          "lg:hidden shadow-none scroll-m-28",
+        isLoading && "animate-pulse"
       )}>
       {Boolean(headingTag) && (
         <HeadingTag
@@ -89,12 +93,19 @@ const Technologies: React.FC<TechnologiesProps> = ({
 
       <ul className="flex justify-center items-center flex-wrap gap-4 xl:gap-8 w-full">
         {isError || isLoading
-          ? Array.from({ length: 4 }, () => (
+          ? Array.from({ length: 6 }, () => (
               <li key={uuid()}>
                 {isError ? (
-                  <p className="text-red-500">Error</p>
+                  <ContentProgress
+                    status={PROGRESS_STATUS.ERROR}
+                    sizeClass="w-12 h-12 rounded-full"
+                  />
                 ) : (
-                  <p className="text-s text-accentColor-tertiary">loading...</p>
+                  <ContentProgress
+                    color={COLOR_VARIANT.PRIMARY}
+                    status={PROGRESS_STATUS.LOADING}
+                    sizeClass="w-12 h-12 rounded-sm"
+                  />
                 )}
               </li>
             ))

@@ -1,4 +1,4 @@
-import { createAssetQuery, createEntryQuery } from "../../../../utilities";
+import { generateAssetQuery, generateEntryQuery } from "../../../../utilities";
 import { useQuery } from "@tanstack/react-query";
 
 type AboutMeData = {
@@ -19,7 +19,7 @@ const useFetchAboutMeData = (): AboutMeData => {
       } = useQuery({
         queryKey: ["aboutMeData"],
         queryFn: () =>
-          fetch(createEntryQuery("7sXkjxhPLs2KzwxlzVOdlK")).then(
+          fetch(generateEntryQuery("7sXkjxhPLs2KzwxlzVOdlK")).then(
             (res) => res.ok && res.json()
           ),
       });
@@ -31,7 +31,7 @@ const useFetchAboutMeData = (): AboutMeData => {
       } = useQuery({
         queryKey: ["aboutMeAImage"],
         queryFn: () =>
-          fetch(createAssetQuery(data?.fields?.authorImage?.sys?.id ?? "")).then(
+          fetch(generateAssetQuery(data?.fields?.authorImage?.sys?.id ?? "")).then(
             (res) => res.ok && res.json()
           ),
         enabled: isSuccess,
