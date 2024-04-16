@@ -1,5 +1,5 @@
 import { ValueOf } from "../../types/utiles";
-import { SECTION_COLOR_VARIANT, SECTION_SHADOW_SIZE } from "./Section.constants";
+import { SECTION_COLOR_VARIANT } from "./Section.constants";
 
 const shadows = [
     'shadow-md',

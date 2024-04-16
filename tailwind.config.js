@@ -28,6 +28,23 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        linearProgress: {
+          '0%': {
+            width: '0',
+            left: '0'
+          },
+
+          '100%': {
+            width: '100%',
+          },
+        }
+      },
+
+      animation: {
+        linearProgress: 'linearProgress 2000ms  infinite'
+      },
+
       fontFamily: {
         'source-code-pro': ['Source Code Pro', 'monospace'],
       },

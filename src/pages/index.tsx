@@ -65,7 +65,7 @@ const HomePage: React.FC = () => {
           </svg>
         }
         colorVariant={SECTION_COLOR_VARIANT.TERTIARY}
-        sectionComponent={SECTION_COMPONENT.HEADER}></Section>
+        sectionComponent={SECTION_COMPONENT.SECTION}></Section>
 
       <Section
         id="my-project"
@@ -86,7 +86,7 @@ const HomePage: React.FC = () => {
           </svg>
         }
         colorVariant={SECTION_COLOR_VARIANT.PRIMARY}
-        sectionComponent={SECTION_COMPONENT.HEADER}></Section>
+        sectionComponent={SECTION_COMPONENT.SECTION}></Section>
 
       <Section
         id="contact"
@@ -106,7 +106,7 @@ const HomePage: React.FC = () => {
             />
           </svg>
         }
-        sectionComponent={SECTION_COMPONENT.HEADER}></Section>
+        sectionComponent={SECTION_COMPONENT.SECTION}></Section>
     </>
   );
 };
