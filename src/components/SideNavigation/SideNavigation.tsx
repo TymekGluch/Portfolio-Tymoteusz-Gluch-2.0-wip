@@ -1,10 +1,10 @@
 import React from "react";
 import { resolvedSideNavigationLink } from "./SideNavigation.data";
-import { Technologies } from "../domain";
+import { Technologies } from "../domain/homePage/Technologies";
 import {
   TECHNOLOGIES_HEADING,
   TECHNOLOGIES_VARIANT,
-} from "../domain/Technologies/Technologies.constants";
+} from "../domain/homePage/Technologies/Technologies.constants";
 
 const SideNavigation: React.FC = () => {
   return (
