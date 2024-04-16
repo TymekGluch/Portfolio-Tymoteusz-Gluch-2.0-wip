@@ -1,12 +1,12 @@
 import React from "react";
-import { ValueOf } from "../../../types/utiles";
+import { ValueOf } from "../../../../types/utiles";
 import {
   TECHNOLOGIES_HEADING,
   TECHNOLOGIES_VARIANT,
 } from "./Technologies.constants";
 import { useQuery } from "@tanstack/react-query";
 import { v4 as uuid } from "uuid";
-import { baseApiUrl, createAssetQuery } from "../../../utilities";
+import { baseApiUrl, createAssetQuery } from "../../../../utilities";
 import classNames from "classnames";
 
 type TechnologiesProps = {

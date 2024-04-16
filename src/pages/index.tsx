@@ -1,21 +1,25 @@
 import React from "react";
-import { Technologies } from "../components/domain";
+import { Technologies } from "../components/domain/homePage/Technologies";
 import {
   TECHNOLOGIES_HEADING,
   TECHNOLOGIES_VARIANT,
-} from "../components/domain/Technologies/Technologies.constants";
+} from "../components/domain/homePage/Technologies/Technologies.constants";
 import { Section } from "../components/Section";
 import {
   SECTION_COLOR_VARIANT,
   SECTION_COMPONENT,
 } from "../components/Section/Section.constants";
+import { AboutMe } from "../components/domain/homePage/AboutMe";
+import { useFetchAboutMeData } from "../components/domain/homePage/AboutMe/AboutMe.hooks";
 
 const HomePage: React.FC = () => {
+  const { heading: aboutMeHeading } = useFetchAboutMeData();
+
   return (
     <>
       <Section
         id="about-me"
-        heading="About me"
+        heading={aboutMeHeading}
         sectionIcon={
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -33,16 +37,7 @@ const HomePage: React.FC = () => {
         }
         colorVariant={SECTION_COLOR_VARIANT.DEFAULT}
         sectionComponent={SECTION_COMPONENT.HEADER}>
-        Zaangażowany front-end developer z ponad dwuletnim doświadczeniem
-        komercyjnym w branży. Specjalizuję się w technologiach React i
-        TypeScript, z głębokim zrozumieniem ich funkcji i możliwości. Moje
-        projekty obejmują również wykorzystanie Next.js, zapewniając dynamiczne
-        i wydajne aplikacje internetowe. Posiadam doświadczenie zarówno w pracy
-        jako freelancer, jak i w zespole, co pozwoliło mi rozwijać umiejętności
-        współpracy oraz samodzielnego rozwiązywania problemów. Poszukuję
-        możliwości rozwoju zawodowego jako w inspirującym środowisku, gdzie będę
-        mógł wykorzystać moje umiejętności i dążyć do osiągnięcia wspólnych
-        celów.
+        <AboutMe />
       </Section>
 
       <Technologies
@@ -70,18 +65,7 @@ const HomePage: React.FC = () => {
           </svg>
         }
         colorVariant={SECTION_COLOR_VARIANT.TERTIARY}
-        sectionComponent={SECTION_COMPONENT.HEADER}>
-        Zaangażowany front-end developer z ponad dwuletnim doświadczeniem
-        komercyjnym w branży. Specjalizuję się w technologiach React i
-        TypeScript, z głębokim zrozumieniem ich funkcji i możliwości. Moje
-        projekty obejmują również wykorzystanie Next.js, zapewniając dynamiczne
-        i wydajne aplikacje internetowe. Posiadam doświadczenie zarówno w pracy
-        jako freelancer, jak i w zespole, co pozwoliło mi rozwijać umiejętności
-        współpracy oraz samodzielnego rozwiązywania problemów. Poszukuję
-        możliwości rozwoju zawodowego jako w inspirującym środowisku, gdzie będę
-        mógł wykorzystać moje umiejętności i dążyć do osiągnięcia wspólnych
-        celów.
-      </Section>
+        sectionComponent={SECTION_COMPONENT.HEADER}></Section>
 
       <Section
         id="my-project"
@@ -102,18 +86,7 @@ const HomePage: React.FC = () => {
           </svg>
         }
         colorVariant={SECTION_COLOR_VARIANT.PRIMARY}
-        sectionComponent={SECTION_COMPONENT.HEADER}>
-        Zaangażowany front-end developer z ponad dwuletnim doświadczeniem
-        komercyjnym w branży. Specjalizuję się w technologiach React i
-        TypeScript, z głębokim zrozumieniem ich funkcji i możliwości. Moje
-        projekty obejmują również wykorzystanie Next.js, zapewniając dynamiczne
-        i wydajne aplikacje internetowe. Posiadam doświadczenie zarówno w pracy
-        jako freelancer, jak i w zespole, co pozwoliło mi rozwijać umiejętności
-        współpracy oraz samodzielnego rozwiązywania problemów. Poszukuję
-        możliwości rozwoju zawodowego jako w inspirującym środowisku, gdzie będę
-        mógł wykorzystać moje umiejętności i dążyć do osiągnięcia wspólnych
-        celów.
-      </Section>
+        sectionComponent={SECTION_COMPONENT.HEADER}></Section>
 
       <Section
         id="contact"
@@ -133,18 +106,7 @@ const HomePage: React.FC = () => {
             />
           </svg>
         }
-        sectionComponent={SECTION_COMPONENT.HEADER}>
-        Zaangażowany front-end developer z ponad dwuletnim doświadczeniem
-        komercyjnym w branży. Specjalizuję się w technologiach React i
-        TypeScript, z głębokim zrozumieniem ich funkcji i możliwości. Moje
-        projekty obejmują również wykorzystanie Next.js, zapewniając dynamiczne
-        i wydajne aplikacje internetowe. Posiadam doświadczenie zarówno w pracy
-        jako freelancer, jak i w zespole, co pozwoliło mi rozwijać umiejętności
-        współpracy oraz samodzielnego rozwiązywania problemów. Poszukuję
-        możliwości rozwoju zawodowego jako w inspirującym środowisku, gdzie będę
-        mógł wykorzystać moje umiejętności i dążyć do osiągnięcia wspólnych
-        celów.
-      </Section>
+        sectionComponent={SECTION_COMPONENT.HEADER}></Section>
     </>
   );
 };
