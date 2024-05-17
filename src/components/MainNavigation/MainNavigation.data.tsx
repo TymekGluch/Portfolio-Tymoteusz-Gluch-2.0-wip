@@ -40,7 +40,7 @@ const navigationLinks = [
   },
 
   {
-    name: "Blog",
+    name: "Future Update",
     anchor: "#",
   },
 ] as NavigationLinksType;
