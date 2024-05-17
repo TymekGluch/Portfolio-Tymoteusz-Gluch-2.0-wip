@@ -13,13 +13,13 @@ import { AboutMe } from "../components/domain/homePage/AboutMe";
 import { useFetchAboutMeData } from "../components/domain/homePage/AboutMe/AboutMe.hooks";
 
 const HomePage: React.FC = () => {
-  const { heading: aboutMeHeading } = useFetchAboutMeData();
+  const { heading: aboutMeHeading, isLoading } = useFetchAboutMeData();
 
   return (
     <>
       <Section
         id="about-me"
-        heading={aboutMeHeading}
+        heading={isLoading ? "loading..." : aboutMeHeading}
         sectionIcon={
           <svg
             xmlns="http://www.w3.org/2000/svg"
