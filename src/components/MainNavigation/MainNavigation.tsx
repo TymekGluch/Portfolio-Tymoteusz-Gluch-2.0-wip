@@ -5,6 +5,8 @@ import {
   onlyMobileLinks,
 } from "./MainNavigation.data";
 import classNames from "classnames";
+import { Link } from "../Link";
+import { COLOR_VARIANT } from "../../constants";
 
 const MainNavigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
@@ -85,9 +87,7 @@ const MainNavigation: React.FC = () => {
                     .map(({ name }) => name)
                     .includes(current.name) && "lg:hidden"
                 )}>
-                <a href={current.anchor} className="whitespace-nowrap">
-                  {current.name}
-                </a>
+                <Link.anchor href={current.anchor} colorVariant={COLOR_VARIANT.SECONDARY}>{current.name}</Link.anchor>
 
                 {index < array.length - 1 && (
                   <span className="block lg:hidden w-full h-px bg-accentColor-primary shadow-variant-2-md" />
