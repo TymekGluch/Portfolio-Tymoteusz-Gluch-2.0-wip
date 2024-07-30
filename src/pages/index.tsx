@@ -11,6 +11,8 @@ import {
 } from "../components/Section/Section.constants";
 import { AboutMe } from "../components/domain/homePage/AboutMe";
 import { useFetchAboutMeData } from "../components/domain/homePage/AboutMe/AboutMe.hooks";
+import { Link } from "../components/Link";
+import { COLOR_VARIANT } from "../constants";
 
 const HomePage: React.FC = () => {
   const { heading: aboutMeHeading, isLoading } = useFetchAboutMeData();
@@ -27,7 +29,7 @@ const HomePage: React.FC = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-12 h-12">
+            className="w-12 h-12s">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -65,7 +67,7 @@ const HomePage: React.FC = () => {
           </svg>
         }
         colorVariant={SECTION_COLOR_VARIANT.TERTIARY}
-        sectionComponent={SECTION_COMPONENT.SECTION}></Section>
+        sectionComponent={SECTION_COMPONENT.SECTION} />
 
       <Section
         id="my-project"
