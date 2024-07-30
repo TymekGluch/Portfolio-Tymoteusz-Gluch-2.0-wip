@@ -11,8 +11,6 @@ import {
 } from "../components/Section/Section.constants";
 import { AboutMe } from "../components/domain/homePage/AboutMe";
 import { useFetchAboutMeData } from "../components/domain/homePage/AboutMe/AboutMe.hooks";
-import { Link } from "../components/Link";
-import { COLOR_VARIANT } from "../constants";
 
 const HomePage: React.FC = () => {
   const { heading: aboutMeHeading, isLoading } = useFetchAboutMeData();

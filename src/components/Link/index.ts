@@ -1,4 +1,5 @@
 import { Anchor, Button, RouterLink } from "./Link"
+import { LINK_VARIANT } from './Link.constants'
 
 type LinkType = {
     button: typeof Button;
@@ -12,4 +13,4 @@ const Link: LinkType = {
     routerLink: RouterLink
 }
 
-export { Link }
+export { Link, LINK_VARIANT }
