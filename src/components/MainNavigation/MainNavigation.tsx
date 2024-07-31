@@ -7,9 +7,11 @@ import {
 import classNames from "classnames";
 import { Link } from "../Link";
 import { COLOR_VARIANT } from "../../constants";
+import { useLocation } from "react-router";
 
 const MainNavigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
+  const { hash } = useLocation()
 
   const menuButtonDescription = isMenuOpen ? "close menu" : "open menu";
 
@@ -22,6 +24,12 @@ const MainNavigation: React.FC = () => {
 
     setIsMenuOpen(!isMenuOpen);
   };
+
+  React.useEffect(() => {
+    document.documentElement.classList.remove("overflow-y-clip");
+
+    setIsMenuOpen(false)
+  }, [hash])
 
   return (
     <nav className="fixed lg:static top-0 left-0  self-center flex justify-center items-center w-screen px-6 lg:px-12 bg-backgroundColor-primary bg-opacity-80 shadow-md-inner z-50">
